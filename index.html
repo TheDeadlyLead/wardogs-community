@@ -40,12 +40,11 @@
       align-items: center;
     }
 
-    .logo {
-      font-size: 24px;
-      font-weight: bold;
-      color: #c40000;
-      letter-spacing: 1px;
-    }
+  .logo img {
+  height: 70px;
+  width: auto;
+  display: block;
+}
 
     nav ul {
       display: flex;
@@ -254,10 +253,14 @@
     }
 
     @media (max-width: 800px) {
-      nav {
-        flex-direction: column;
-        gap: 15px;
-      }
+nav {
+  max-width: 1200px;
+  margin: auto;
+  padding: 12px 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 
       nav ul {
         flex-wrap: wrap;
@@ -280,7 +283,9 @@
 
 <header>
   <nav>
-    <div class="logo">THEDEADLYLEADS COMMUNITY</div>
+ <div class="logo">
+  <img src="logo.png" alt="TheDeadlyLeads Community Logo">
+</div>
 
     <ul>
       <li><a href="#home">Home</a></li>
