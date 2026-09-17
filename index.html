@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WarDogs Gaming Community</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #080808;
+      color: #ffffff;
+      line-height: 1.6;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(5, 5, 5, 0.95);
+      border-bottom: 1px solid #7d0000;
+    }
+
+    nav {
+      max-width: 1200px;
+      margin: auto;
+      padding: 18px 25px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 28px;
+      font-weight: bold;
+      color: #c40000;
+      letter-spacing: 2px;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 25px;
+    }
+
+    nav a {
+      color: #ffffff;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: #d00000;
+    }
+
+    .hero {
+      min-height: 88vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 40px 20px;
+      background:
+        linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.9)),
+        radial-gradient(circle at center, #360000 0%, #080808 60%);
+    }
+
+    .hero-content {
+      max-width: 900px;
+    }
+
+    .hero h1 {
+      font-size: clamp(48px, 9vw, 100px);
+      color: #c90000;
+      text-transform: uppercase;
+      letter-spacing: 6px;
+      text-shadow: 0 0 20px rgba(255,0,0,0.35);
+    }
+
+    .hero h2 {
+      margin-top: 10px;
+      font-size: 28px;
+      color: #eeeeee;
+    }
+
+    .hero p {
+      max-width: 700px;
+      margin: 20px auto 30px;
+      color: #bdbdbd;
+      font-size: 18px;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 14px 28px;
+      margin: 8px;
+      background: #b60000;
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 5px;
+      transition: 0.3s;
+      border: 1px solid #e00000;
+    }
+
+    .button:hover {
+      background: #e00000;
+      transform: translateY(-2px);
+      box-shadow: 0 0 18px rgba(255, 0, 0, 0.35);
+    }
+
+    .button.secondary {
+      background: transparent;
+      border: 1px solid #777777;
+    }
+
+    .button.secondary:hover {
+      border-color: #c40000;
+    }
+
+    section {
+      padding: 80px 20px;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 38px;
+      margin-bottom: 45px;
+      color: #ffffff;
+    }
+
+    .section-title span {
+      color: #c40000;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: #111111;
+      border: 1px solid #252525;
+      border-top: 3px solid #a90000;
+      border-radius: 8px;
+      padding: 28px;
+      transition: 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      border-color: #a90000;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+    }
+
+    .card h3 {
+      color: #d10000;
+      margin-bottom: 12px;
+      font-size: 23px;
+    }
+
+    .card p {
+      color: #bcbcbc;
+    }
+
+    .server-status {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 5px 12px;
+      border-radius: 20px;
+      background: #103710;
+      color: #65ff65;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    .about {
+      background: #0e0e0e;
+    }
+
+    .about-content {
+      max-width: 850px;
+      margin: auto;
+      text-align: center;
+      color: #c2c2c2;
+      font-size: 18px;
+    }
+
+    .cta {
+      text-align: center;
+      background:
+        linear-gradient(rgba(20,0,0,0.8), rgba(5,5,5,0.95));
+    }
+
+    .cta h2 {
+      font-size: 40px;
+      margin-bottom: 15px;
+    }
+
+    .cta p {
+      color: #bdbdbd;
+      margin-bottom: 25px;
+    }
+
+    footer {
+      background: #030303;
+      text-align: center;
+      padding: 30px 20px;
+      border-top: 1px solid #222222;
+      color: #777777;
+    }
+
+    footer strong {
+      color: #b90000;
+    }
+
+    @media (max-width: 800px) {
+      nav {
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px 18px;
+      }
+
+      .hero {
+        min-height: 75vh;
+      }
+
+      .hero h2 {
+        font-size: 22px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <nav>
+    <div class="logo">WARDOGS</div>
+
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#servers">Servers</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#community">Community</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section class="hero" id="home">
+  <div class="hero-content">
+    <h1>WarDogs</h1>
+    <h2>Gaming Community</h2>
+
+    <p>
+      Welcome to the WarDogs. A gaming community built for players who want
+      great servers, active staff, community events, and a place to squad up.
+    </p>
+
+    <a class="button" href="#" target="_blank">
+      Join Our Discord
+    </a>
+
+    <a class="button secondary" href="#servers">
+      View Servers
+    </a>
+  </div>
+</section>
+
+<section id="servers">
+  <div class="container">
+    <h2 class="section-title">Our <span>Game Servers</span></h2>
+
+    <div class="cards">
+
+      <div class="card">
+        <h3>DayZ</h3>
+        <p>
+          Custom WarDogs DayZ server with mods, vehicles, base building,
+          events, custom gameplay, and an active community.
+        </p>
+
+        <div class="server-status">
+          ● ONLINE
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Rust</h3>
+        <p>
+          WarDogs Rust community server. Build, raid, survive, and compete
+          alongside the rest of the WarDogs community.
+        </p>
+
+        <div class="server-status">
+          ● COMING SOON
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Community Games</h3>
+        <p>
+          Squad up with WarDogs members in Call of Duty, Battlefield,
+          and other games played by the community.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="container">
+    <h2 class="section-title">About <span>WarDogs</span></h2>
+
+    <div class="about-content">
+      <p>
+        WarDogs is more than just a Discord server. We're building a gaming
+        community where players can meet new people, find squads, play on
+        community-run servers, participate in events, and help grow something
+        together.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <h2 class="section-title">Community <span>HQ</span></h2>
+
+    <div class="cards">
+
+      <div class="card">
+        <h3>📢 News & Updates</h3>
+        <p>
+          Server updates, new features, wipes, maintenance, events,
+          announcements, and community news.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>📜 Server Rules</h3>
+        <p>
+          Read the WarDogs community and server rules before jumping into
+          one of our servers.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>🛡 Staff Team</h3>
+        <p>
+          Meet the people who help run, moderate, and maintain the WarDogs
+          community.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>📝 Staff Applications</h3>
+        <p>
+          Interested in helping the community? Staff applications and
+          requirements will be available here.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>🎮 Events</h3>
+        <p>
+          Community game nights, DayZ events, Rust events, tournaments,
+          giveaways, and more.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>🎫 Support</h3>
+        <p>
+          Need help with the server or community? Join Discord and open a
+          support ticket with the WarDogs staff team.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="cta" id="community">
+  <div class="container">
+    <h2>Join the WarDogs</h2>
+
+    <p>
+      Join the Discord, meet the community, and get into the fight.
+    </p>
+
+    <a class="button" href="#" target="_blank">
+      Join WarDogs Discord
+    </a>
+  </div>
+</section>
+
+<footer>
+  <p>
+    © 2026 <strong>WarDogs Gaming Community</strong>.
+    All rights reserved.
+  </p>
+</footer>
+
+</body>
+</html>
