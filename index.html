@@ -63,42 +63,65 @@
       color: #d00000;
     }
 
-    .hero {
-      min-height: 88vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      padding: 40px 20px;
-      background:
-        linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.9)),
-        radial-gradient(circle at center, #360000 0%, #080808 60%);
-    }
+.hero {
+  min-height: 72vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 70px 20px;
+  position: relative;
+  overflow: hidden;
 
-    .hero-content {
-      max-width: 950px;
-    }
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.52), rgba(0, 0, 0, 0.90)),
+    url("https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=1600&q=85");
 
-    .hero h1 {
-      font-size: clamp(42px, 8vw, 85px);
-      color: #c90000;
-      text-transform: uppercase;
-      letter-spacing: 3px;
-      text-shadow: 0 0 20px rgba(255,0,0,0.35);
-    }
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
 
-    .hero h2 {
-      margin-top: 12px;
-      font-size: 28px;
-      color: #eeeeee;
-    }
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at center, rgba(150, 0, 0, 0.18), transparent 55%);
+  pointer-events: none;
+}
 
-    .hero p {
-      max-width: 720px;
-      margin: 20px auto 30px;
-      color: #bdbdbd;
-      font-size: 18px;
-    }
+.hero-content {
+  max-width: 950px;
+  position: relative;
+  z-index: 2;
+}
+
+.hero h1 {
+  font-size: clamp(42px, 8vw, 85px);
+  color: #ff1a1a;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  text-shadow:
+    0 0 8px rgba(255, 0, 0, 0.65),
+    0 0 22px rgba(255, 0, 0, 0.35),
+    3px 3px 0 #000;
+}
+
+.hero h2 {
+  margin-top: 12px;
+  font-size: 28px;
+  color: #ffffff;
+  text-shadow: 2px 2px 4px #000;
+}
+
+.hero p {
+  max-width: 720px;
+  margin: 20px auto 30px;
+  color: #e2e2e2;
+  font-size: 18px;
+  text-shadow: 1px 1px 3px #000;
+}
 
     .button {
       display: inline-block;
